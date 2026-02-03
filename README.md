@@ -14,7 +14,7 @@ This is the NodeJS backend for the `The Magical Unicorn Thrift Store`-project.
 - Multistage pipeline
 - Matrix Strategy pattern
 
-# Unicorn Backend
+## Status
 
 ![CI](https://github.com/moack/nodejs-backend/actions/workflows/ci.yml/badge.svg?branch=main)
 
