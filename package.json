@@ -10,19 +10,6 @@
     "test:ci": "jest --ci --runInBand --reporters=default --reporters=jest-junit",
     "test:watch": "jest --watch"
   },
-  "jest": {
-    "preset": "ts-jest",
-    "testEnvironment": "node",
-    "reporters": [
-      "default",
-      [
-        "jest-junit",
-        {
-          "output": "test-reports/junit.xml"
-        }
-      ]
-    ]
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
