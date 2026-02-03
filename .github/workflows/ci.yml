@@ -88,8 +88,6 @@ jobs:
 
       - name: Run tests
         run: npm run test:ci
-        env:
-          JEST_JUNIT_OUTPUT: test-reports/junit.xml
 
       - name: Upload test report
         uses: actions/upload-artifact@v4
