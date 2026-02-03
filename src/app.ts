@@ -30,8 +30,8 @@ console.log('process.env.NODE_ENV', process.env.NODE_ENV);
 // Only listen if not in test
 if (process.env.NODE_ENV === 'test') {
     // Start server without DB
-    const PORT = process.env.PORT || 3000;
-    app.listen(PORT, () => console.log('Server running'));
+    //const PORT = process.env.PORT || 3000;
+    //app.listen(PORT, () => console.log('Server running'));
 } else {
     // Start server after DB connects
     AppDataSource.initialize()

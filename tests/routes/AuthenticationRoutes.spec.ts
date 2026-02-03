@@ -1,16 +1,10 @@
 import 'reflect-metadata';
-import { container } from "tsyringe";
 import '../../src/setup/container';
 import { fakeUserRepo } from './AuthenticationRoutes.di';
 import { app } from "../../src/app";
 import request from "supertest";
-import express from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import createAuthRoutes from "../../src/routes/AuthenticationRoutes";
-import { IUserRepository } from "../../src/abstractions/repositories/IUserRepository";
-import { UserRepository } from "../../src/repositories/UserRepository";
-import { AuthenticationService } from "../../src/services/AuthenticationService";
 
 jest.mock("bcrypt");
 jest.mock("jsonwebtoken");
@@ -19,11 +13,6 @@ const mockedBcrypt = bcrypt as jest.Mocked<typeof bcrypt>;
 const mockedJwt = jwt as jest.Mocked<typeof jwt>;
 
 describe("AuthenticationRoutes", () => {
-    //let app: express.Express;
-    //let fakeUserRepo: jest.Mocked<IUserRepository>;
-    let authService: AuthenticationService;
-    
-    
     // Override the binding
     beforeEach(() => {
         //container.registerInstance<IUserRepository>("IUserRepository", fakeUserRepo);
