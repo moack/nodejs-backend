@@ -83,6 +83,9 @@ jobs:
           name: dist
           path: dist
 
+      - name: Create test report folder
+        run: mkdir -p test-reports
+
       - name: Run tests
         run: npm run test:ci
         env:
