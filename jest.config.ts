@@ -10,7 +10,9 @@ const config: Config.InitialOptions = {
   collectCoverage: true,
   coverageDirectory: 'coverage',
   coverageReporters: ['lcov', 'text'],
-  roots: ['<rootDir>/src'], 
+  collectCoverageFrom: [
+    'src/**/*.ts',
+  ],
   reporters: [
     'default',
     [
