@@ -7,6 +7,10 @@ const config: Config.InitialOptions = {
   transform: {
     '^.+\\.ts$': ['ts-jest', { tsconfig: 'tsconfig.json' }],
   },
+  collectCoverage: true,
+  coverageDirectory: 'coverage',
+  coverageReporters: ['lcov', 'text'],
+  roots: ['<rootDir>/src'], 
   reporters: [
     'default',
     [
