@@ -1,5 +1,7 @@
 # Backend Unicorn Thrift Store
 
+This is the NodeJS backend for the `The Magical Unicorn Thrift Store`-project.
+
 ## Design Decissions
 - MySQL as a Database: Persistent solid ACID database.
 - Repository Pattern implemented, so we can always change our data layer in case of a different database.
@@ -9,6 +11,8 @@
 - Since the microservice is currently small, we keep Product and Authentication/User logic in one project, but if it grows they need their own Microservices.
 - Tripple AAA pattern for Unit-testing.
 - supertest for routing tests.
+- Multistage pipeline
+- Matrix Strategy pattern
 
 # Unicorn Backend
 

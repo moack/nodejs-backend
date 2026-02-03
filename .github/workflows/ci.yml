@@ -13,35 +13,18 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x]
-    outputs:
-      cache-key: ${{ steps.cache.outputs.cache-hit }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Cache node modules
-        id: cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'npm'   # <-- Automatically caches node_modules
 
       - name: Install dependencies
         run: npm ci
-
-      # Save node_modules as artifact for next stage
-      - name: Upload node_modules
-        uses: actions/upload-artifact@v4
-        with:
-          name: node_modules
-          path: node_modules
 
   # Stage 2: Build
   build:
@@ -54,17 +37,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Download cached node_modules
-      - name: Download node_modules
-        uses: actions/download-artifact@v4
-        with:
-          name: node_modules
-          path: node_modules
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'npm'   # <-- Restores cached node_modules
 
       - name: Build TypeScript
         run: npm run build
@@ -87,24 +64,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'   # <-- Restores cached node_modules
+
       # Download built files
       - name: Download build
         uses: actions/download-artifact@v4
         with:
           name: dist
           path: dist
-
-      # Download node_modules
-      - name: Download node_modules
-        uses: actions/download-artifact@v4
-        with:
-          name: node_modules
-          path: node_modules
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
 
       - name: Run tests
         run: npm run test:ci
