@@ -41,7 +41,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'   # <-- Restores cached node_modules
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Build TypeScript
         run: npm run build
@@ -68,8 +71,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'   # <-- Restores cached node_modules
+          cache: 'npm'
 
+      - name: Install dependencies
+        run: npm ci
+  
       # Download built files
       - name: Download build
         uses: actions/download-artifact@v4
