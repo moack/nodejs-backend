@@ -16,7 +16,7 @@ This is the NodeJS backend for the `The Magical Unicorn Thrift Store`-project.
 
 # Unicorn Backend
 
-![CI](https://github.com/moack/nodejs-backend/actions/workflows/CI.yml/badge.svg)
+![CI](https://github.com/moack/nodejs-backend/actions/workflows/ci.yml/badge.svg?branch=main)
 
 [![codecov](https://codecov.io/gh/moack/nodejs-backend/branch/main/graph/badge.svg)](https://codecov.io/gh/moack/nodejs-backend)
 
