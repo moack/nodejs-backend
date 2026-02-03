@@ -13,6 +13,9 @@ This is the NodeJS backend for the `The Magical Unicorn Thrift Store`-project.
 - supertest for routing tests.
 - Multistage pipeline
 - Matrix Strategy pattern
+- ExpressJS as webserver to host API
+- JWT Tokens for authentication with cookie (XSS protection and needs CORS) and we don't use non-browsers to communicate with this service.
+  Configure frontend with: Httponly, samesite=lax, secure and setup CORS here to prevent 
 
 ## Status
 
