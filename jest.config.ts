@@ -18,8 +18,9 @@ const config: Config.InitialOptions = {
     [
       'jest-junit',
       {
-        outputDirectory: './test-reports',
+        outputDirectory: 'test-reports',
         outputName: 'junit.xml',
+        suiteName: 'jest tests',
       },
     ],
   ],
