@@ -1,6 +1,6 @@
-# Backend Unicorn Thrift Store
+# Backend Thrift Store
 
-This is the NodeJS backend for the `The Magical Unicorn Thrift Store`-project.
+This is the NodeJS backend for the `The Thrift Store`-project.
 
 ## Design Decissions
 - MySQL as a Database: Persistent solid ACID database.
